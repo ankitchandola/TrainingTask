@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import "./App.css";
+import Task from "./components/Task.js";
+
+//learn axios, dont do stuff in app.js only import
+
+
 
 function App() {
-  const [datafile, setDataFile] = useState([
-    { id: "1", home: "ghar", age: "69" },
-    { id: "2", home: "dusra ghar", age: "70" },
-    { id: "3", home: "tesra ghar", age: "71" },
-    { id: "4", home: "chautha ghar", age: "72" },
-    { id: "5", home: "pachwa ghar", age: "73" },
-    { id: "6", home: "chatwa ghar", age: "74" },
-  ]);
 
-  return (
-    <div className="App">
-      {datafile.map((datainfo) => {
-        return <h1>{datainfo.id}</h1>;
-      })}
-    </div>
-  );
+  return(
+
+    <Task />
+  )
+  
 }
 
 export default App;
