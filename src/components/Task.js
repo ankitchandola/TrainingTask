@@ -28,7 +28,7 @@ function Task() {
               {item.name}
             </button>
           ))}</div>
-          <div>{data.name}</div>
+          <div>{console.log()}</div>
         </div>
       );
 }
