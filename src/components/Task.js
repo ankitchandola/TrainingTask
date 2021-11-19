@@ -6,25 +6,25 @@ function Task() {
     { id: 2, name: "About", childrens: [] },
   ]);
 
-  const handleClick = (id) => {
-    const previousData = [...data];
-    if (id === 1) {
-      previousData[1].childrens = [];
-      previousData[0].childrens = [
-        { id: 1, name: "Home Submenu 1" },
-        { id: 2, name: "Home Submenu 2" },
-      ];
-      setData(previousData);
-    }
-    if (id === 2) {
-      previousData[0].childrens = [];
-      previousData[1].childrens = [
-        { id: 1, name: "About Submenu 1" },
-        { id: 2, name: "About Submenu 2" },
-      ];
-      setData(previousData);
-    }
-  };
+  // const handleClick = (id) => {
+  //   const previousData = [...data];
+  //   if (id === 1) {
+  //     previousData[1].childrens = [];
+  //     previousData[0].childrens = [
+  //       { id: 1, name: "Home Submenu 1" },
+  //       { id: 2, name: "Home Submenu 2" },
+  //     ];
+  //     setData(previousData);
+  //   }
+  //   if (id === 2) {
+  //     previousData[0].childrens = [];
+  //     previousData[1].childrens = [
+  //       { id: 1, name: "About Submenu 1" },
+  //       { id: 2, name: "About Submenu 2" },
+  //     ];
+  //     setData(previousData);
+  //   }
+  // };
 
   const MouseOver = (id) => {
     console.log('mouse over', id)
@@ -80,3 +80,5 @@ function Task() {
   );
 }
 export default Task;
+// arrow function is myfunc = () => {}
+//for stop rerendering you do myfunc = () => () =>{} or  {() => myfunc()}
