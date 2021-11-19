@@ -1,34 +1,55 @@
 import React, { useState } from 'react';
 
 function Task() {
-    const [data, setData] = useState([
-        { id: 1, name: "home" },
-        { id: 2, name: "about" }
+      const [data, setData] = useState([
+        { id: 1, name: "Home", childrens: [] },
+        { id: 2, name: "About", childrens: [] }
       ]);
     
-      console.log("data", data);
       const handleClick = (id) => {
-        console.log(id);
-        if (id === 1)
-          setData((data) => [
-            ...data,
-            data[0].name = "Home"
-          ]);
-        if (id === 2)
-        setData((data) => [
-            ...data,
-            data[1].name = "About"
-          ]);
+          const previousData = [...data]
+          if (id === 1) {
+            previousData[1].childrens = []
+            previousData[0].childrens = [
+              { id: 1, name: "Home Submenu 1" },
+              { id: 2, name: "Home Submenu 2" }
+            ]
+            setData(previousData);
+          }
+          if (id === 2) {
+            previousData[0].childrens = []
+            previousData[1].childrens = [
+              { id: 1, name: "About Submenu 1" },
+              { id: 2, name: "About Submenu 2" }
+            ]
+            setData(previousData);
+          }
       };
+
+      console.log(data, 'data')
     
       return (
         <div>
-          <div>{data.map((item) => (
-            <button  onClick={() => handleClick(item.id)}>
-              {item.name}
-            </button>
-          ))}</div>
-          <div>{console.log()}</div>
+          <ul>{data.map((item) => (
+            <li>
+              <button  onClick={() => handleClick(item.id)}>
+                {item.name}
+              </button>
+              {
+                item.childrens && item.childrens.length > 0 && 
+                <ul>
+                  {
+                    item.childrens.map((innerItem) => {
+                      return (
+                       <li>{innerItem.name}</li> 
+                      )    
+                    })
+                  }
+                </ul>
+              }
+            </li>
+          ))}
+          </ul>
         </div>
       );
 }
