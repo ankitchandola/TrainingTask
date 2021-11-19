@@ -15,7 +15,7 @@ const Task2 = () => {
        
    }, [])
    const handleChange = event => {
-    this.setPost({ title: event.target.value });
+    setPost({ title: event.target.value });
  
 
    }
@@ -32,7 +32,7 @@ const Task2 = () => {
               {item.author}
             </button>
             Title:
-              <input type ="text" name ="Title" onChange= {this.handleChange} />
+              <input type ="text" name ="Title" onChange= {handleChange} />
 
 
 
