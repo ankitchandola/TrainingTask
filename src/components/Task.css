@@ -1,0 +1,13 @@
+.maindiv {
+
+
+    display : flex;
+    flex-wrap: nowrap
+
+}
+
+.menu{
+
+display: inline-block;
+
+}

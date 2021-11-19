@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import logo from '../logo.svg';
+import "./Task.css"
 
 function Task() {
   const [data, setData] = useState([
@@ -55,16 +57,18 @@ function Task() {
   console.log(data, "data");
 
   return (
-    <div>
+    <div className = "maindiv">
+                <span><img src={logo} className="App-logo" alt="logo" /> </span>
       <ul>
         {data.map((item) => (
-          <li>
+          <>
+
             {/* <button classname="button" onClick={() => handleClick(item.id)}>
               {item.name}
             </button> */}
-            <div onMouseEnter={() => MouseOver(item.id)} onMouseLeave={MouseOut()}>
+            <span className = "menu" onMouseEnter={() => MouseOver(item.id)} onMouseLeave={MouseOut()}>
               {data && <div>{item.name}</div>}
-            </div>
+            </span>
             {item.childrens && item.childrens.length > 0 && (
               <ul>
                 {item.childrens.map((innerItem) => {
@@ -72,10 +76,10 @@ function Task() {
                 })}
               </ul>
             )}
-          </li>
+          </>
         ))}
       </ul>
-      <div></div>
+      
     </div>
   );
 }
