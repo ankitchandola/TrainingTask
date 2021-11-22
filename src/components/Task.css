@@ -51,11 +51,15 @@ color:rgb(250, 215, 215);
     font-size: medium;
     position: absolute;
     background-color: #282c34;
+    padding: 20px;
+    
     
     margin-top: 15px;
 
 
 }
+
+
 .linkcss {
 
     text-decoration: none;
