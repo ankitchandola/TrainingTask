@@ -1,13 +1,64 @@
 .maindiv {
-
+    
+    background-color: #282c34;
+    align-items: center;
 
     display : flex;
-    flex-wrap: nowrap
+    text-align: center;
+    
+    margin-top: 5pc;
+    font-family: Garamond, serif;
+    
+    
 
 }
 
 .menu{
 
-display: inline-block;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+
+margin-left: 10pc;
+color:rgb(250, 215, 215);
+
+    width: 100%;
+    
+    padding-right: 15px;
+    margin-right: auto;
+
+}
+
+.App-logo{
+    
+    
+    margin-left: 30pc;
+    cursor: pointer;
+    height: 10vmin;
+    
+}
+
+.submenu {
+   margin: 25px;
+   font-size: larger;
+   padding-top: 15px;
+   position: relative;
+  
+
+}
+
+.subsubmenu {
+    font-size: medium;
+    position: absolute;
+    background-color: #282c34;
+    
+    margin-top: 15px;
+
+
+}
+.linkcss {
+
+    text-decoration: none;
+    color: aliceblue;
 
 }
