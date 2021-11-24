@@ -1,15 +1,27 @@
 import React, { useState } from "react";
-import logo from '../logo.svg';
+import logo from '../logo.svg'; 
+// import axios from 'axios'
 import "./Task.css"
 
+
+// const api = axios.create({
+//   baseURL: `http://localhost:3001/`
+// })
+
+
 function Task() {
-  const [data, setData] = useState([
-    { id: 1, name: "Home", childrens: [] },
-    { id: 2, name: "About", childrens: [] },
-    { id: 3, name: "Tech", childrens: [] },
-    { id: 4, name: "place", childrens: [] },
-    
-  ]);
+  
+
+
+  const [data, setData] = useState([]);
+
+ 
+
+
+  // api.get('/').then(res => {
+  //   console.log(res.data)
+  //   setData(res.data)
+  // })
 
   // const handleClick = (id) => {
   //   const previousData = [...data];
