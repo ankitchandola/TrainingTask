@@ -1,27 +1,22 @@
-import React, { useState } from "react";
-import logo from '../logo.svg'; 
-// import axios from 'axios'
-import "./Task.css"
-
-
-// const api = axios.create({
-//   baseURL: `http://localhost:3001/`
-// })
-
+import React, { useState, useEffect } from "react";
+import logo from "../logo.svg";
+import axios from "axios";
+import "./Task.css";
 
 function Task() {
-  
-
-
   const [data, setData] = useState([]);
 
- 
-
-
-  // api.get('/').then(res => {
-  //   console.log(res.data)
-  //   setData(res.data)
-  // })
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001")
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   // const handleClick = (id) => {
   //   const previousData = [...data];
@@ -44,13 +39,12 @@ function Task() {
   // };
 
   const MouseOver = (id) => {
-    console.log('mouse over', id)
+    console.log("mouse over", id);
     const previousData = [...data];
     if (id === 1) {
       previousData[1].childrens = [];
       previousData[2].childrens = [];
       previousData[3].childrens = [];
-
 
       previousData[0].childrens = [
         { id: 1, name: "Home Mousehover 1" },
@@ -90,7 +84,7 @@ function Task() {
     }
   };
   const MouseOut = () => () => {
-    console.log('mouse out')
+    console.log("mouse out");
     const previousData = [...data];
     previousData[0].childrens = [];
     previousData[1].childrens = [];
@@ -101,30 +95,36 @@ function Task() {
   console.log(data, "data");
 
   return (
-    <div className = "maindiv">
-                <span><img src={logo} className="App-logo" alt="logo" /> </span>
-      <div className = "menu">
-        {data.map((item) => (
-          <div className = "submenu">
-
+    <div className="maindiv">
+      <span>
+        <img src={logo} className="App-logo" alt="logo" />{" "}
+      </span>
+      <div className="menu">
+        {data.newTable.map((item) => (
+          <div className="submenu">
             {/* <button classname="button" onClick={() => handleClick(item.id)}>
               {item.name}
             </button> */}
-            <div onMouseEnter={() => MouseOver(item.id)} onMouseLeave={MouseOut()}>
-              {data && <a href = "/" target="_blank" className="linkcss">{item.name}</a>}
+            <div
+              onMouseEnter={() => MouseOver(item.id)}
+              onMouseLeave={MouseOut()}
+            >
+              {data && (
+                <a href="/" target="_blank" className="linkcss">
+                  {item.name}
+                </a>
+              )}
               {item.childrens && item.childrens.length > 0 && (
-              <div className = "subsubmenu">
-                {item.childrens.map((innerItem) => {
-                  return <div className= "inneritem">{innerItem.name}</div>;
-                })}
-              </div>
-            )}
+                <div className="subsubmenu">
+                  {item.childrens.map((innerItem) => {
+                    return <div className="inneritem">{innerItem.name}</div>;
+                  })}
+                </div>
+              )}
             </div>
-
           </div>
         ))}
       </div>
-      
     </div>
   );
 }
